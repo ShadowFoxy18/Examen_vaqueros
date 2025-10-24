@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 6873546993906287134}
   - component: {fileID: 756342045102950708}
   - component: {fileID: 7879176645202622254}
-  - component: {fileID: 7433670998830821553}
+  - component: {fileID: -4678996801925226816}
   m_Layer: 5
   m_Name: BadGuy2
   m_TagString: Untagged
@@ -258,9 +258,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7433670998830821553}
-        m_TargetAssemblyTypeName: Blanco, Assembly-CSharp
-        m_MethodName: Disparo
+      - m_Target: {fileID: -4678996801925226816}
+        m_TargetAssemblyTypeName: TargetControler, Assembly-CSharp
+        m_MethodName: AccionOnTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -270,7 +270,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7433670998830821553
+--- !u!114 &-4678996801925226816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,8 +279,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7824531490125340672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 966638dc4f11f92489930fd71c6d4944, type: 3}
+  m_Script: {fileID: 11500000, guid: 99674ca8426089a40811e19dfbd3a065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valueObject: 750
-  timeObject: 3
+  recompensa: 750
+  timeOnScreen: 3

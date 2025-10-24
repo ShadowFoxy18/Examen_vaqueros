@@ -483,7 +483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 122148303}
-  - component: {fileID: 122148302}
+  - component: {fileID: 122148304}
   m_Layer: 0
   m_Name: ScriptJuego
   m_TagString: Untagged
@@ -491,7 +491,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &122148302
+--- !u!4 &122148303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122148300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 583.6662, y: 306.54712, z: 1.5906812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &122148304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -500,20 +515,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 122148300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1b5ed918c4c964a9eb8735ef55dd7f, type: 3}
+  m_Script: {fileID: 11500000, guid: a43543dfb5921ef4692cdcc5b7add22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pantallaInicio: {fileID: 1402777140}
-  pantallaFinal: {fileID: 821373388}
-  prefabs:
-  - {fileID: 3394762290031110355, guid: 57e2ed3523eeab5428b90886ed4740a1, type: 3}
-  - {fileID: 7824531490125340672, guid: 6a1524416d996ea49afff2ddd19326fa, type: 3}
-  - {fileID: 8441409734470388454, guid: 7fbcb86be4010be4f98092fb8a2d43b1, type: 3}
-  - {fileID: 6409816238651152363, guid: 49f5002e1799bb640a090f26fdf5a920, type: 3}
-  - {fileID: 2555527943923984785, guid: 9703159b0ee4434478b09f3d4747e4b7, type: 3}
-  valueTarget: 
-  timeTarget: []
-  targetsOnScene:
+  startScreen: {fileID: 1402777140}
+  endScreen: {fileID: 821373388}
+  targets:
   - {fileID: 1459147703}
   - {fileID: 1191680838}
   - {fileID: 2126655082}
@@ -533,47 +540,29 @@ MonoBehaviour:
   - {fileID: 1946058214}
   - {fileID: 845429852}
   - {fileID: 702310530}
-  position:
-  - {fileID: 541559120}
-  - {fileID: 685521064}
-  - {fileID: 1817894942}
-  - {fileID: 950204693}
-  - {fileID: 1689094101}
-  - {fileID: 1040136119}
-  - {fileID: 1048398384}
-  - {fileID: 408453493}
-  - {fileID: 480818274}
-  - {fileID: 1729926062}
-  - {fileID: 2124088076}
-  - {fileID: 383931075}
-  - {fileID: 372091996}
-  - {fileID: 269558261}
-  - {fileID: 1472719560}
-  - {fileID: 638901120}
-  - {fileID: 823588249}
-  - {fileID: 1272027148}
-  - {fileID: 1261627661}
-  textoTiempo: {fileID: 113350298}
-  tiempoJuego: 15
-  textoPuntosFinal: {fileID: 1427407109}
-  textoValue: {fileID: 878964225}
-  puntos: 0
-  delay: 1
---- !u!4 &122148303
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122148300}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 583.6662, y: 306.54712, z: 1.5906812}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  targetsPosition:
+  - {fileID: 541559119}
+  - {fileID: 685521063}
+  - {fileID: 1817894941}
+  - {fileID: 950204692}
+  - {fileID: 1689094100}
+  - {fileID: 1040136118}
+  - {fileID: 1048398383}
+  - {fileID: 408453492}
+  - {fileID: 480818273}
+  - {fileID: 1729926061}
+  - {fileID: 2124088075}
+  - {fileID: 383931074}
+  - {fileID: 372091995}
+  - {fileID: 269558260}
+  - {fileID: 1472719559}
+  - {fileID: 638901119}
+  - {fileID: 823588248}
+  - {fileID: 1272027147}
+  - {fileID: 1261627660}
+  textTime: {fileID: 113350298}
+  textPuntos: {fileID: 878964225}
+  textFinal: {fileID: 1427407109}
 --- !u!1001 &172480083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1842,9 +1831,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 122148302}
-        m_TargetAssemblyTypeName: Inicio, Assembly-CSharp
-        m_MethodName: InitButton
+      - m_Target: {fileID: 122148304}
+        m_TargetAssemblyTypeName: GameControler, Assembly-CSharp
+        m_MethodName: StartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4355,8 +4344,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 122148302}
-        m_TargetAssemblyTypeName: Inicio, Assembly-CSharp
+      - m_Target: {fileID: 122148304}
+        m_TargetAssemblyTypeName: GameControler, Assembly-CSharp
         m_MethodName: EndButton
         m_Mode: 1
         m_Arguments:
