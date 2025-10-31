@@ -560,7 +560,10 @@ MonoBehaviour:
   - {fileID: 823588248}
   - {fileID: 1272027147}
   - {fileID: 1261627660}
+  timeGame: 30
   textTime: {fileID: 113350298}
+  minTimeToActive: 5
+  maxTimeToActive: 10
   textPuntos: {fileID: 878964225}
   textFinal: {fileID: 1427407109}
 --- !u!1001 &172480083

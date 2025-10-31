@@ -22,12 +22,15 @@ public class GameControler : MonoBehaviour
     //Positions
 
     //
-    float timeGame = 60;
+    public float timeGame = 60;
     float timeOnGame;
     [SerializeField]
     TextMeshProUGUI textTime;
 
-    float minTimeOnScreen, maxTimeOnScreen = 10f;
+        //
+    public float minTimeToActive, maxTimeToActive = 10f;
+        // Randomizador aparicion
+    float timeToActive;
     //Tiempo
 
     //
@@ -40,20 +43,19 @@ public class GameControler : MonoBehaviour
 
     bool playerActive;
 
-
-    //
-    float minTimeScreen = 5f;
-    float maxTimeScreen = 10f;
-    // Randomizador aparicion
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        TimeGame();
+        PointGame();
         playerActive = false;
 
         startScreen.SetActive(true);
         endScreen.SetActive(false);
+
+
+        DesactivarTargets(targets);
+        DesactivarTargets(targetsPosition);
     }
 
 
@@ -65,16 +67,22 @@ public class GameControler : MonoBehaviour
 
         startScreen.SetActive(false);
         playerActive = true;
+
+        timeToActive = RandomTimeToActive();
     }
 
     public void EndButton()
     {
+
         startScreen.SetActive(true);
         endScreen.SetActive(false);
+
+        DesactivarTargets(targets);
+        DesactivarTargets(targetsPosition);
     }
 
 
-    void AddPoint(int value)
+    public void AddPoint(int value)
     {
         puntos += value;
         textPuntos.text = value.ToString() + " s";
@@ -99,21 +107,67 @@ public class GameControler : MonoBehaviour
             else
             {
                 timeOnGame -= 1 * Time.deltaTime;
+                timeToActive -= Time.deltaTime;
                 TimeGame();
-                ActivarTarget();
+                PointGame();
+                if (timeToActive < 0)
+                {
+                    ActivarTarget();
+                    timeToActive = RandomTimeToActive();
+                }
+                
             }
         }
     }
 
+    void PointGame()
+    {
+        textPuntos.text = puntos.ToString() + " s";
+    }
 
     void TimeGame()
     {
-        textTime.text = puntos.ToString("00");
+        textTime.text = timeOnGame.ToString("00");
+    }
+
+    float RandomTimeToActive()
+    {
+        return Random.Range(minTimeToActive, maxTimeToActive);
+    }
+
+    int RandomNumber(int value)
+    {
+        return Random.Range(0, value);
     }
 
 
     void ActivarTarget()
     {
+        GameObject target = RandomGameObject(targets);
+        GameObject position = RandomGameObject(targetsPosition);
 
+        target.transform.position = position.GetComponentInParent<Transform>().position;
+
+        target.SetActive(true);
+    }
+
+
+    void DesactivarTargets(GameObject[] gameObjects)
+    {
+        for (int i = 0; i < gameObjects.Length; i++)
+        {
+            gameObjects[i].SetActive(false);
+        }
+    }
+
+    GameObject RandomGameObject(GameObject[] gameObjects)
+    {
+        GameObject objeto = gameObjects[RandomNumber(gameObjects.Length)];
+        
+        while (gameObjects[RandomNumber(gameObjects.Length)].activeSelf)
+        {
+            objeto = gameObjects[RandomNumber(gameObjects.Length)];
+        }
+        return objeto;
     }
 }

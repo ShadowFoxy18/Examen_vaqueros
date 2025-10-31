@@ -5,9 +5,10 @@ public class TargetControler : MonoBehaviour
     [SerializeField]
     int recompensa = 0;
     [SerializeField]
-    float timeOnScreen = 5f;
+    float timeScreen = 5f;
+    float timeOnScreen;
 
-    GameControler controler;
+    GameControler Controler;
 
     GameObject escondite;
 
@@ -17,23 +18,34 @@ public class TargetControler : MonoBehaviour
         escondite.SetActive(true);
     }
 
-    void Desactivar()
+    void Desactivar(GameObject objeto)
     {
-        gameObject.SetActive(false);
+        objeto.gameObject.SetActive(false);
     }
 
 
     public void AccionOnTarget()
     {
-        Desactivar();
+        gameObject.SetActive(false);
+        Controler.AddPoint(recompensa);
+
+        //Desactivar(escondite);
     }
 
-    
+    void Start()
+    {
+        timeOnScreen = timeScreen;
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+        timeOnScreen -= Time.deltaTime;
+        if (timeOnScreen < 0)
+        {
+            Desactivar(escondite);
+            gameObject.SetActive(false);
+        }
     }
 }
